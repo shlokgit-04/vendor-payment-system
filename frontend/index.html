@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Payment Management System</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-wallet"></i> VPMS</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fas fa-users"></i> Vendors</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Payments</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Reports</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Vendor Management</h1>
+                <div class="user-info">
+                    <span>Admin User</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Alert Container for Success/Error Messages -->
+                <div id="alert-container"></div>
+
+                <div class="grid-container">
+                    <!-- Vendor Management Form -->
+                    <div class="card form-card">
+                        <h2><span id="form-title">Add New</span> Vendor</h2>
+                        <form id="vendor-form">
+                            <!-- Hidden ID field for updates -->
+                            <input type="hidden" id="vendor-id">
+                            
+                            <div class="form-group">
+                                <label for="vendor-name">Vendor Name</label>
+                                <input type="text" id="vendor-name" required placeholder="Enter vendor name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="vendor-email">Email Address</label>
+                                <input type="email" id="vendor-email" required placeholder="Enter email address">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="vendor-phone">Phone Number</label>
+                                <input type="tel" id="vendor-phone" required placeholder="Enter phone number">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" id="btn-submit" class="btn btn-primary">Add Vendor</button>
+                                <button type="button" id="btn-update" class="btn btn-success hidden">Update Vendor</button>
+                                <button type="button" id="btn-clear" class="btn btn-secondary">Clear Form</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Vendor List Section -->
+                    <div class="card list-card">
+                        <h2>Vendor List</h2>
+                        <div class="table-responsive">
+                            <table class="vendor-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vendor-table-body">
+                                    <!-- Rows populated dynamically by JavaScript -->
+                                    <tr>
+                                        <td colspan="5" class="empty-state">Loading vendors...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
