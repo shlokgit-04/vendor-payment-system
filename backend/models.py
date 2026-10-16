@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Date, Float, Integer, String
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -10,4 +10,6 @@ class Vendor(Base):
     name = Column(String)
     email = Column(String)
     phone = Column(String)
-
+    amount_due = Column(Float, nullable=True)
+    due_date = Column(Date, nullable=True)
+    payout_status = Column(String, nullable=True)
